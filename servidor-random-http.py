@@ -38,10 +38,10 @@ try:
 
         recvSocket.send(bytes("HTTP/1.1 200 OK\r\n\r\n" +
                         "<html><body><h1>Hola!</h1>" +
-                        "<a href= + rnd_num + >Dame otra</a>"+
+                        "<a href=" + str(rnd_num) + ">Dame otra</a>"+
                         "</p>" +
                         "</body></html>" +
-                        "\r\n"))
+                        "\r\n", "utf-8"))
         recvSocket.close()
 except KeyboardInterrupt:
     print("Closing binded socket")
