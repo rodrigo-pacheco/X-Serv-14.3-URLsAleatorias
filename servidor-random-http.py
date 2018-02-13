@@ -34,15 +34,15 @@ try:
         print(recvSocket.recv(2048))
         print('Answering back...')
 
-        rnd_num = random.randint(1,9999999)
+        rnd_num = random.randint(1, 9999999)
 
-        recvSocket.send(bytes("HTTP/1.1 200 OK\r\n\r\n" +
+        recvSocket.send(bytes(
+                        "HTTP/1.1 200 OK\r\n\r\n" +
                         "<html><body><h1>Hola!</h1>" +
                         "<a href=" + str(rnd_num) + ">Dame otra</a>"+
-                        "</p>" +
                         "</body></html>" +
                         "\r\n", "utf-8"))
         recvSocket.close()
 except KeyboardInterrupt:
     print("Closing binded socket")
-mySocket.close()
+    mySocket.close()
