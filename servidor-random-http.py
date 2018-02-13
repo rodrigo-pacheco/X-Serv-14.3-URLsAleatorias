@@ -39,7 +39,7 @@ try:
         recvSocket.send(bytes(
                         "HTTP/1.1 200 OK\r\n\r\n" +
                         "<html><body><h1>Hola!</h1>" +
-                        "<a href=" + str(rnd_num) + ">Dame otra</a>"+
+                        "<a href=" + str(rnd_num) + ">Dame otra</a>" +
                         "</body></html>" +
                         "\r\n", "utf-8"))
         recvSocket.close()
