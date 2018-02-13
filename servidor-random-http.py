@@ -25,6 +25,7 @@ mySocket.listen(5)
 
 # Accept connections, read incoming data, and answer back an HTML page
 #  (in an almost-infinite loop; the loop can be stopped with Ctrl+C)
+
 try:
     while True:
         print('Waiting for connections')
@@ -32,22 +33,15 @@ try:
         print('Request received:')
         print(recvSocket.recv(2048))
         print('Answering back...')
-        aleat = str(random.randrange(999999999))
-        recvSocket.send(bytes(
-try:
-    while True:
-        print('Waiting for connections')
-        (recvSocket, address) = mySocket.accept()
-        print('Request received:')
-        print(recvSocket.recv(2048))
-        print('Answering back...')
-        recvSocket.send(b"HTTP/1.1 200 OK\r\n\r\n" +
-                        b"<html><body><h1>Hello\r World!</h1>" +
-                        b"<p>And in particular hello to you, " +
-                        bytes(address[0], 'utf-8') +
-                        b"</p>" +
-                        b"</body></html>" +
-                        b"\r\n")
+
+        rnd_num = random.randint(1,9999999)
+
+        recvSocket.send(bytes("HTTP/1.1 200 OK\r\n\r\n" +
+                        "<html><body><h1>Hola!</h1>" +
+                        "<a href= + rnd_num + >Dame otra</a>"+
+                        "</p>" +
+                        "</body></html>" +
+                        "\r\n"))
         recvSocket.close()
 except KeyboardInterrupt:
     print("Closing binded socket")
